@@ -1,0 +1,40 @@
+<lf-form name="accommodation"
+         title="Accommodation"
+         [isRequired]="true">
+  <lf-form-content>
+    <lf-table #lfTable
+              name="accommodationTable"
+              label="Rooms">
+      <ng-template #lfTableHeaderTemplate>
+        <thead lf-table-header>
+        <lf-table-column-index></lf-table-column-index>
+        <lf-table-column label="Type of room"></lf-table-column>
+        <lf-table-column label="Cleaning service"></lf-table-column>
+        <lf-table-column label="Smoker"></lf-table-column>
+        </thead>
+      </ng-template>
+
+      <ng-template #lfTableRowTemplate let-i="index">
+        <tr lf-table-row [index]="i">
+          <th lf-table-cell-index>
+            {{i + 1}}
+          </th>
+
+          <td lf-table-cell>
+            <lf-select name="typeRoom"
+                       [options]="optionsTypeRoom"
+            ></lf-select>
+          </td>
+          <td lf-table-cell>
+            <lf-checkbox name="cleaning"
+            ></lf-checkbox>
+          </td>
+          <td lf-table-cell>
+            <lf-checkbox name="smoker"
+            ></lf-checkbox>
+          </td>
+        </tr>
+      </ng-template>
+    </lf-table>
+  </lf-form-content>
+</lf-form>

@@ -1,0 +1,43 @@
+<lf-form name="otherGuests" title="Other Guests" [isRequired]="true">
+  <lf-form-content>
+    <lf-table name="otherGuestsTable" label="Guests Info">
+      <ng-template #lfTableHeaderTemplate>
+        <thead lf-table-header>
+        <lf-table-column-index></lf-table-column-index>
+        <lf-table-column label="Full Name"></lf-table-column>
+        <lf-table-column label="Date of Birth"></lf-table-column>
+        <lf-table-column label="E-mail Address"></lf-table-column>
+        <lf-table-column label="Phone Number"></lf-table-column>
+        </thead>
+      </ng-template>
+
+      <ng-template #lfTableRowTemplate let-i="index">
+        <tr lf-table-row [index]="i">
+          <th lf-table-cell-index>
+            {{i + 1}}
+          </th>
+
+          <td lf-table-cell>
+            <lf-text name="fullName">
+            </lf-text>
+          </td>
+          <td lf-table-cell>
+            <lf-date name="birthDate"
+                     [maxDate]="today()">
+            </lf-date>
+          </td>
+          <td lf-table-cell>
+            <lf-text name="email"
+                     [isValid]="emailValidator()">
+            </lf-text>
+          </td>
+          <td lf-table-cell>
+            <lf-text name="phone">
+            </lf-text>
+          </td>
+        </tr>
+      </ng-template>
+
+    </lf-table>
+  </lf-form-content>
+</lf-form>

@@ -1,0 +1,39 @@
+<lf-table #lfTable
+          [name]="name"
+          [label]="label">
+  <ng-template #lfTableHeaderTemplate>
+    <thead lf-table-header>
+    <lf-table-column-index></lf-table-column-index>
+    <lf-table-column label="Date"></lf-table-column>
+    <lf-table-column label="# Adults"></lf-table-column>
+    <lf-table-column label="# Children"></lf-table-column>
+    <lf-table-column label="Type of Food"></lf-table-column>
+    </thead>
+  </ng-template>
+
+  <ng-template #lfTableRowTemplate let-i="index">
+    <tr lf-table-row [index]="i">
+      <th lf-table-cell-index>
+        {{i + 1}}
+      </th>
+
+      <td lf-table-cell>
+        <lf-date name="date"
+        ></lf-date>
+      </td>
+      <td lf-table-cell>
+        <lf-number name="adult"
+        ></lf-number>
+      </td>
+      <td lf-table-cell>
+        <lf-number name="children"
+        ></lf-number>
+      </td>
+      <td lf-table-cell>
+        <lf-select name="typeFood"
+                   [options]="optionsTypeFood"
+        ></lf-select>
+      </td>
+    </tr>
+  </ng-template>
+</lf-table>

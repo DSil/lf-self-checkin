@@ -1,0 +1,47 @@
+<lf-form name="reservationDetail"
+         title="Reservation detail"
+         [isRequired]="true" [isDefault]="true">
+
+  <lf-form-content>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <lf-text name="fullName" code="1.1" title="Full Name" label="Full Name" [isRequired]="true"></lf-text>
+      </div>
+      <div class="col-sm-4">
+        <lf-date name="birthDate" code="1.2" title="Date of Birth" label="Date of Birth" [maxDate]="eighteenYearsAgo()" [isRequired]="true"></lf-date>
+      </div>
+      <div class="col-sm-4">
+        <lf-select name="nationality" code="1.3" title="Nationality" label="Nationality" [options]="nationalities" [isRequired]="true"></lf-select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <lf-text name="email" code="1.4" title="E-mail Address" label="E-mail Address" [isValid]="emailValidator()" [isRequired]="true"></lf-text>
+      </div>
+      <div class="col-sm-4">
+        <lf-text name="phone" code="1.5" title="Phone Number" label="Phone Number" [isRequired]="true"></lf-text>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <lf-date-range name="checkinCheckout" code="1.6" title="Check-in / Check-out" label="Check-in / Check-out" [minDate]="today()" [isRequired]="true"></lf-date-range>
+      </div>
+      <div class="col-sm-2">
+        <lf-number name="arrivalHour" code="1.7" title="Hour of Arrival" label="Hour of Arrival" [min]="0" [max]="23"></lf-number>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-4">
+        <lf-text name="flightNumber" code="1.8" title="Flight Number" label="Flight Number" [maxLength]="7"></lf-text>
+      </div>
+    </div>
+
+  </lf-form-content>
+
+  <sc-other-guests></sc-other-guests>
+  <sc-accommodation></sc-accommodation>
+</lf-form>
